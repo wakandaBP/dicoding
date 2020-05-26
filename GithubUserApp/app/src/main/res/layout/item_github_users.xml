@@ -11,17 +11,18 @@
     android:layout_marginTop="4dp"
     android:layout_marginRight="8dp"
     android:layout_marginBottom="4dp"
-    card_view:cardCornerRadius="4dp">
+    card_view:cardCornerRadius="4dp"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="90dp"
         android:padding="8dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_users_photo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             tools:src="@android:color/darker_gray"
@@ -31,17 +32,17 @@
             android:id="@+id/txt_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="26dp"
+            android:layout_marginStart="8dp"
             android:layout_toEndOf="@id/img_users_photo"
             android:text="@string/name_users"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="26dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
             android:layout_toEndOf="@id/img_users_photo"
             android:orientation="vertical"
             >
@@ -63,10 +64,10 @@
                 <TextView
                     android:id="@+id/tv_place"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginBottom="8dp"
-                    android:textSize="16sp"
+                    android:layout_height="22dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="3dp"
+                    android:textSize="12sp"
                     android:textStyle="bold"
                     tools:text="@string/places" />
 
@@ -81,19 +82,19 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:layout_marginBottom="4dp"
+                    android:layout_marginBottom="2dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_followers_24dp"
+                    android:src="@drawable/ic_company_black_24dp"
                     />
 
                 <TextView
-                    android:id="@+id/tv_followers"
+                    android:id="@+id/tv_company"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="20dp"
                     android:layout_marginStart="10dp"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
                     android:textStyle="bold"
-                    tools:text="@string/followers" />
+                    tools:text="@string/company" />
 
             </LinearLayout>
 
