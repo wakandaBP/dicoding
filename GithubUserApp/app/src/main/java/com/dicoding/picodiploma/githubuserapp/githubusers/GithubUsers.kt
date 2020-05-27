@@ -5,12 +5,12 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class GithubUsers (
-    var avatar : Int?,
-    var name : String?,
-    var location : String?,
-    var follower : String?,
-    var following : String?,
-    var username : String?,
-    var company : String?,
-    var repository : String?
+    val avatar : Int?,
+    val name : String?,
+    val location : String?,
+    val follower : String?,
+    val following : String?,
+    val username : String?,
+    val company : String?,
+    val repository : String?
 ) : Parcelable

@@ -12,22 +12,14 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dicoding.picodiploma.githubuserapp.R
 
-class CardViewUserAdapter (private val listUsers : ArrayList<GithubUsers>) : RecyclerView.Adapter<CardViewUserAdapter.CardViewViewHolder> () {
+class CardViewUserAdapter (private val listUsers : ArrayList<GithubUsers>, private val context: Context) : RecyclerView.Adapter<CardViewUserAdapter.CardViewViewHolder> () {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
-    companion object {
-        private lateinit var context: Context
-
-        fun setContext(con: Context) {
-            context = con
-        }
-    }
-
     inner class CardViewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        var imgPhoto : ImageView = itemView.findViewById(R.id.img_users_photo)
-        var tvName : TextView = itemView.findViewById(R.id.txt_name)
-        var tvPlace : TextView = itemView.findViewById(R.id.tv_place)
-        var tvCompany : TextView = itemView.findViewById(R.id.tv_company)
+        val imgPhoto : ImageView = itemView.findViewById(R.id.img_users_photo)
+        val tvName : TextView = itemView.findViewById(R.id.txt_name)
+        val tvPlace : TextView = itemView.findViewById(R.id.tv_place)
+        val tvCompany : TextView = itemView.findViewById(R.id.tv_company)
     }
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {

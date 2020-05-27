@@ -33,7 +33,7 @@ class DetailUsersActivity : AppCompatActivity(), View.OnClickListener {
         detail_company.text = users.company.toString()
         detail_place.text = users.location.toString()
 
-        val username = "@" + users.username.toString()
+        val username = "@${users.username}"
         detail_github_username.text = username
         githubAccount = users.username.toString()
 

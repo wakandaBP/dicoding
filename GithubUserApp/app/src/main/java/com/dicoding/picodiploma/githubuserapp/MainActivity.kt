@@ -37,13 +37,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        CardViewUserAdapter.setContext(this)
 
         mRecyclerView = findViewById(R.id.rv_users)
         mRecyclerView.setHasFixedSize(true)
 
         prepare()
-        addItem()
         showRecyclerCardView()
     }
 
@@ -56,25 +54,7 @@ class MainActivity : AppCompatActivity() {
         username = resources.getStringArray(R.array.username)
         company = resources.getStringArray(R.array.company)
         repository = resources.getStringArray(R.array.repository)
-    }
 
-    private fun showRecyclerCardView(){
-        mRecyclerView.layoutManager = LinearLayoutManager(this)
-        val cardViewUserAdapter = CardViewUserAdapter(list)
-        mRecyclerView.adapter = cardViewUserAdapter
-
-        cardViewUserAdapter.setOnItemClickCallback(object : CardViewUserAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: GithubUsers) {
-                showSelectedUser(data)
-            }
-        })
-    }
-
-    private fun showSelectedUser(user: GithubUsers) {
-        Toast.makeText(this, user.name, Toast.LENGTH_SHORT).show()
-    }
-
-    private fun addItem() {
         for (position in names.indices){
             val users = GithubUsers(avatar.getResourceId(position, -1),
                 names[position],
@@ -87,6 +67,22 @@ class MainActivity : AppCompatActivity() {
             )
             list.add(users)
         }
+    }
+
+    private fun showRecyclerCardView(){
+        mRecyclerView.layoutManager = LinearLayoutManager(this)
+        val cardViewUserAdapter = CardViewUserAdapter(list, this)
+        mRecyclerView.adapter = cardViewUserAdapter
+
+        cardViewUserAdapter.setOnItemClickCallback(object : CardViewUserAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: GithubUsers) {
+                showSelectedUser(data)
+            }
+        })
+    }
+
+    private fun showSelectedUser(user: GithubUsers) {
+        Toast.makeText(this, user.name, Toast.LENGTH_SHORT).show()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
