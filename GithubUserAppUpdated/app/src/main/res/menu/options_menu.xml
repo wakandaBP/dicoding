@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/searchUserBtn"
+        android:icon="@drawable/ic_search_white_24dp"
+        android:title="@string/search_user_hint"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="collapseActionView|always" />
+
+    <item
+        android:id="@+id/go_to_github"
+        android:enabled="true"
+        android:icon="@drawable/github_mark_light_64px"
+        android:title=""
+        android:visible="true"
+        app:showAsAction="always"
+        />
+
+</menu>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Github User\'s</string>
+    <string name="name_users">Users Name</string>
+    <string name="places">Places</string>
+    <string name="company">Company</string>
+    <string name="github_username">Github username</string>
+    <string name="profile_repository">Repository</string>
+    <string name="profile_followers">Followers</string>
+    <string name="profile_following">Following</string>
+    <string name="user_github">Follow</string>
+    <string name="search_user_hint">Search users</string>
+    <string name="list_followers">Followers:</string>
+    <string name="list_following">Following:</string>
+    <string name="list_repositories">Repositories:</string>
+    <string name="welcome">Welcome to Github User\'s</string>
+    <string name="cant_connect">Can\'t connect, please try again later.</string>
+
+</resources>
