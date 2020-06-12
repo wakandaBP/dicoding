@@ -55,14 +55,14 @@ class CardViewUserAdapter : RecyclerView.Adapter<CardViewUserAdapter.CardViewVie
                 })
 
                 //get number of followers
-                api.followersUser(userItems.username).enqueue(object : Callback<List<DataFollowers>> {
-                    override fun onFailure(call: Call<List<DataFollowers>>, t: Throwable) {
+                api.followersUser(userItems.username).enqueue(object : Callback<ArrayList<DataFollowers>> {
+                    override fun onFailure(call: Call<ArrayList<DataFollowers>>, t: Throwable) {
                         //d("load followers", "onFailure $t")
                     }
 
                     override fun onResponse(
-                        call: Call<List<DataFollowers>>,
-                        response: Response<List<DataFollowers>>
+                        call: Call<ArrayList<DataFollowers>>,
+                        response: Response<ArrayList<DataFollowers>>
                     ) {
                         if (response.code() == 200){
                             response.body()?.let {

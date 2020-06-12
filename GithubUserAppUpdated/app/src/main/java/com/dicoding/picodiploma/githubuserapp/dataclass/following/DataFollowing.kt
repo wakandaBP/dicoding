@@ -1,11 +1,14 @@
 package com.dicoding.picodiploma.githubuserapp.dataclass.following
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class DataFollowing (
     @SerializedName("login")
     val username: String?,
 
-    @SerializedName("url")
-    val profileLink: String?
-)
+    @SerializedName("avatar_url")
+    var photoProfile : String?
+) : Parcelable

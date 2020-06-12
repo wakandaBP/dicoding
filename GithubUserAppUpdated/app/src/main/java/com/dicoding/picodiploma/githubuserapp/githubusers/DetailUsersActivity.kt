@@ -1,5 +1,6 @@
 package com.dicoding.picodiploma.githubuserapp.githubusers
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -35,9 +36,17 @@ class DetailUsersActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_detail_users)
 
         val users = intent.getParcelableExtra(EXTRA_USERNAME) as GithubUsers
-        loadUser(users.username.toString(),this)
+        val username = users.username.toString()
+        loadUser(username,this)
 
-        btn_github.setOnClickListener(this)
+        val sectionsPagerAdapter = DetailSectionsPagerAdapter(username, supportFragmentManager)
+        view_pager.adapter = sectionsPagerAdapter
+        tabs.setupWithViewPager(view_pager)
+
+        supportActionBar?.elevation = 0f
+
+        btn_repository.setOnClickListener(this)
+
     }
 
     private fun loadUser(username: String, context: Context){
@@ -46,9 +55,12 @@ class DetailUsersActivity : AppCompatActivity(), View.OnClickListener {
 
             }
 
+            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<DetailUser>, response: Response<DetailUser>) {
                 when (response.code()) {
                     200 -> response.body().let {
+                        val userName = response.body().username.toString()
+                        detail_tv_username.text = "@${userName}"
                         detail_tv_name.text = response.body().name.toString()
 
                         Glide.with(context)
@@ -60,15 +72,13 @@ class DetailUsersActivity : AppCompatActivity(), View.OnClickListener {
 
                     408 -> Toast.makeText(context,"Request timeout", Toast.LENGTH_SHORT).show()
                 }
-
             }
-
         })
     }
 
     override fun onClick(v: View) {
         when(v.id){
-            R.id.btn_github -> {
+            R.id.btn_repository -> {
                 val viewGithub = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/$githubAccount"))
                 if (intent.resolveActivity(packageManager) != null){
                     startActivity(viewGithub)

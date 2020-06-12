@@ -34,7 +34,7 @@
             android:layout_marginStart="8dp"
             android:layout_toEndOf="@id/img_users_photo"
             android:paddingLeft="7dp"
-            android:text="@string/name_users"
+            android:text="@string/username"
             android:textSize="20sp"
             android:textStyle="bold" />
 
